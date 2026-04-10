@@ -17,17 +17,12 @@ function toggleAbout(){
 
 onMounted(()=>{
   unsubscribe = DatabaseService.getLatest((record) => {
-    if(record?.timestamp) {
-      const lastUpdate = new Date(record.timestamp).getTime()
-      const now = Date.now()
-      const secondsAgo = (now - lastUpdate) / 1000
-      monitorStatus.value = secondsAgo < OFFLINE_THRESHOLD_SECONDS ? "Online" : "Offline"
-    }
+    latestRecord.value = record
   })
 
   statusTimer = setInterval(() => {
     if (latestRecord.value?.timestamp) {
-      const secondsAgo = (Date.now() - latest.value.timestamp) / 1000
+      const secondsAgo = (Date.now() - latestRecord.value.timestamp) / 1000
       monitorStatus.value = secondsAgo < OFFLINE_THRESHOLD_SECONDS ? "Online" : "Offline"
     }
   }, 1000)

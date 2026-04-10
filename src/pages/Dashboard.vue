@@ -75,8 +75,9 @@ onUnmounted(() => {
 </script>
 
 <template>
-  <div :class="['flex flex-row w-[75%] items-center mt-5 mb-5 m-auto justify-between pt-10 pb-10 px-10 rounded-4xl bg-[#404040] text-[#E0DFDD] border-4', containerColour]">
-  <div class="flex-1 flex justify-center">
+  <h2 class="w-[75%] m-auto text-2xl font-semibold mt-3">Current Readings</h2>
+  <div :class="['flex flex-row w-[75%] items-center mt-1 mb-5 m-auto justify-between pt-10 pb-10 px-10 rounded-4xl bg-[#404040] text-[#E0DFDD] border-4', containerColour]">
+    <div class="flex-1 flex justify-center">
     <MetricContainer :metric="latest?.humidity" label="Humidity (%RH)" type="humidity"/>
   </div>
   <div class="flex-1 flex justify-center">
@@ -87,7 +88,7 @@ onUnmounted(() => {
   </div>
 </div>
 
-  <div class="w-[75%] m-auto mt-5">
+  <div class="w-[75%] h-[50em] overflow-scroll m-auto my-5">
     <h2 class="text-2xl font-semibold mb-3">Readings Log</h2>
     <table class="w-full border-collapse">
       <thead>
