@@ -1,6 +1,6 @@
 # CalmSpace-UI
 
-This template should help get you started developing with Vue 3 in Vite.
+This frontend application renders data collected from a Raspberyy pi running the application found at https://github.com/k00288477/CalmSpace 
 
 ## Recommended IDE Setup
 
