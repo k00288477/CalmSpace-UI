@@ -5,7 +5,7 @@ import TopStatusBar from "@/components/TopStatusBar.vue";
 
 <template>
   <TopStatusBar />
-  <Dashboard />
+  <RouterView />
 </template>
 
 <style scoped></style>

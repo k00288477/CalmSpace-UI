@@ -15,9 +15,12 @@ export default class DatabaseService {
     }
 
     static async getAllDataRows() {
+        const oneHourAgo = Date.now() - (60 * 60 * 1000)
         const snapshot = await get(query(ref(db, 'readings'), orderByChild('timestamp')))
         if (snapshot.exists()) {
-            return Object.values(snapshot.val()).reverse()
+            return Object.values(snapshot.val())
+                .filter(r => r.timestamp >= oneHourAgo)
+                .reverse()
         }
         return []
     }
